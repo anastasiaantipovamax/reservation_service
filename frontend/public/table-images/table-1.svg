@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+<rect width="640" height="420" rx="28" fill="#efe2d2"/>
+<rect x="24" y="24" width="592" height="372" rx="24" fill="#fffaf5" stroke="#d7bfa7" stroke-width="4"/>
+<rect x="50" y="52" width="540" height="42" rx="14" fill="#dff1ff" stroke="#90caf9" stroke-width="3"/>
+<text x="320" y="80" text-anchor="middle" font-size="20" font-family="Arial" fill="#28678c">окно</text>
+<circle cx="320" cy="230" r="68" fill="#8b4b22"/>
+<circle cx="230" cy="230" r="28" fill="#c79a6b" stroke="#8b4b22" stroke-width="3"/>
+<circle cx="410" cy="230" r="28" fill="#c79a6b" stroke="#8b4b22" stroke-width="3"/>
+<text x="320" y="376" text-anchor="middle" font-size="28" font-family="Arial" font-weight="700" fill="#3b2417">Столик 1 — 2 места</text>
+</svg>

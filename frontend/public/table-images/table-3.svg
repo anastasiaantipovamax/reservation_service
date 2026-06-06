@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+<rect width="640" height="420" rx="28" fill="#f0e0cf"/>
+<rect x="24" y="24" width="592" height="372" rx="24" fill="#fffaf5" stroke="#d7bfa7" stroke-width="4"/>
+<rect x="252" y="164" width="136" height="136" rx="16" fill="#8b4b22"/>
+<circle cx="320" cy="120" r="28" fill="#c79a6b" stroke="#8b4b22" stroke-width="3"/>
+<circle cx="320" cy="344" r="28" fill="#c79a6b" stroke="#8b4b22" stroke-width="3"/>
+<circle cx="210" cy="232" r="28" fill="#c79a6b" stroke="#8b4b22" stroke-width="3"/>
+<circle cx="430" cy="232" r="28" fill="#c79a6b" stroke="#8b4b22" stroke-width="3"/>
+<text x="320" y="376" text-anchor="middle" font-size="28" font-family="Arial" font-weight="700" fill="#3b2417">Столик 3 — 4 места</text>
+</svg>

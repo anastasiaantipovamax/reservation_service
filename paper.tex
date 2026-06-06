@@ -104,11 +104,24 @@
 \newcommand{\subject}{Разработка веб-приложений}
 \newcommand{\student}{Антипова Анастасия Максимовна}
 \newcommand{\group}{241-3211}
-\newcommand{\teacher}{Кружалов Алексей Сергеевич}
+\newcommand{\teacher}{А.~С.~Кружалов}
 
 % ─────────────────────────────────────────────────────────────────────
 \usepackage[russian]{babel}
 \usepackage{tocloft}
+
+% ─────────────── Оформление листингов кода ───────────────
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  columns=fullflexible,
+  keepspaces=true,
+  captionpos=b,
+  showstringspaces=false
+}
 
 \addto\captionsrussian{%
   \renewcommand{\contentsname}{СОДЕРЖАНИЕ}%
@@ -147,7 +160,7 @@
 % 5. Основная часть
 \include{ch1}
 \include{ch2}   
-% \include{ch3}  
+\include{ch3}
 
 % 6. Заключение 
  \include{conclusion}
