@@ -1,0 +1,30 @@
+.env
+
+# LaTeX temporary files
+*.aux
+*.log
+*.out
+*.toc
+*.bcf
+*.blg
+*.bbl
+*.run.xml
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# macOS
+.DS_Store
+__MACOSX/
+
+# Node / React
+node_modules/
+frontend/node_modules/
+
+# Python / Django
+__pycache__/
+*.pyc
+backend/**/__pycache__/
+
+# Local media/uploads
+backend/media/
