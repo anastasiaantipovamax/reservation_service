@@ -113,6 +113,14 @@
 % ─────────────── Оформление листингов кода ───────────────
 \usepackage{xcolor}
 \usepackage{listings}
+\renewcommand{\lstlistingname}{Листинг}
+\captionsetup[lstlisting]{
+  justification   = centering,
+  labelsep        = endash,
+  singlelinecheck = false,
+  aboveskip       = 6pt,
+  skip            = 6pt
+}
 \lstset{
   basicstyle=\ttfamily\small,
   breaklines=true,
