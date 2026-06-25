@@ -15,8 +15,8 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 
-\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}m{#1 - 2\tabcolsep - 2\arrayrulewidth}}
-\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1 - 2\tabcolsep - 2\arrayrulewidth}}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1 - 2\tabcolsep - 2\arrayrulewidth}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1 - 2\tabcolsep - 2\arrayrulewidth}}
 
 
 \begin{document}
@@ -80,6 +80,10 @@
 \small
 \begin{longtable}{|P{0.5\textwidth}|C{0.11\textwidth}|C{0.15\textwidth}|C{0.24\textwidth}|}
 
+    \hline
+    \textbf{Разрабатываемый вопрос}                                                                  & \textbf{Объем, \%} & \textbf{Срок} & \textbf{Примечание} \\
+    \hline
+    \endfirsthead
     \hline
     \textbf{Разрабатываемый вопрос}                                                                  & \textbf{Объем, \%} & \textbf{Срок} & \textbf{Примечание} \\
     \hline

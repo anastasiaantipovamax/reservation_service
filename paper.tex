@@ -1,102 +1,7 @@
 \documentclass[14pt, a4paper]{extarticle}
+\usepackage{mospolytech_coursework}
 
-% ───────────────────────── Кодировка и язык ──────────────────────────
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[english, russian]{babel}
-
-% ─────────────── Шрифт Times New Roman  ────────────────
-\usepackage{tempora}
-
-% ───────────────────── Поля ( ──────────────────────
-\usepackage[left=30mm, right=15mm, top=20mm, bottom=20mm,
-            footskip=12mm]{geometry}
-
-% ─────────────────────────── Пакеты ──────────────────────────────────
-\usepackage{array}
-\usepackage{longtable}
-\usepackage{tabularx}
-\usepackage{setspace}
-\usepackage{caption}
-\usepackage{fancyhdr}
-\usepackage{indentfirst}
-\usepackage{threeparttable}
-\usepackage{graphicx}      % для вставки изображений
-\usepackage{float}         % для более точного размещения рисунков
-\usepackage{pdfpages}       % для вставки задания в PDF
-\usepackage{hyperref}       % гиперссылки в PDF (для библиографии)
-\hypersetup{hidelinks}      % скрыть рамки ссылок
-
-% ─────────────── Библиография ГОСТ через biblatex-gost ───────────────
-
-\usepackage[
-  backend=biber,
-  style=gost-numeric,
-  sorting=none,
-  language=auto,
-  autolang=other
-]{biblatex}
-\addbibresource{refs.bib}
-\urlstyle{same}
-
-% ── Списки: убираем лишние отступы от \onehalfspacing ────────────────
-\usepackage{enumitem}
-\setlist[enumerate]{topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=2pt}
-\setlist[itemize]  {topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=2pt}
-
-% ────── Заголовки разделов/подразделов  ───────────
-\usepackage{titlesec}
-
-\titleformat{\section}[block]
-  {\normalfont\bfseries\hyphenpenalty=10000\exhyphenpenalty=10000}
-  {\thesection}{0.5em}{}
-\titlespacing{\section}{1.25cm}{12pt}{6pt}
-
-\titleformat{\subsection}[block]
-  {\normalfont\bfseries\hyphenpenalty=10000\exhyphenpenalty=10000}
-  {\thesubsection}{0.5em}{}
-\titlespacing{\subsection}{1.25cm}{12pt}{6pt}
-
-% ─────── Межстрочный интервал 1,5  ────────────────
-\onehalfspacing
-
-% ──────── Абзацный отступ 1,25 см  ────────────────
-\setlength{\parindent}{1.25cm}
-\setlength{\parskip}{0pt}
-
-% ─── Выравнивание по ширине с автопереносом  ───────
-\tolerance=1000
-\emergencystretch=2em
-
-% ─── Подпись таблицы: слева, тире, без отступа ────────────────
-\captionsetup[table]{
-  justification   = raggedright,
-  singlelinecheck = false,
-  labelsep        = endash,
-  aboveskip       = 12pt,
-  skip            = 6pt
-}
-
-% ── Подпись рисунка: по центру, тире ─────────────
-\captionsetup[figure]{
-  justification   = centering,
-  labelsep        = endash,
-  aboveskip       = 12pt,
-  skip            = 6pt
-}
-
-% ──────── Пользовательские типы колонок для таблиц ───────────────────
-\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
-
-% ─── Нумерация страниц по центру снизу ───────────
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% ─── Данные студента  ──────────────────────────────────
+% Определение данных
 \newcommand{\theme}{%
     Разработка веб-приложения для автоматизации процесса
     бронирования столиков в ресторане%
@@ -106,83 +11,36 @@
 \newcommand{\group}{241-3211}
 \newcommand{\teacher}{Кружалов Алексей Сергеевич}
 
-% ─────────────────────────────────────────────────────────────────────
-\usepackage[russian]{babel}
-\usepackage{tocloft}
-
-% ─────────────── Оформление листингов кода ───────────────
-\usepackage{xcolor}
-\usepackage{listings}
-\renewcommand{\lstlistingname}{Листинг}
-\captionsetup[lstlisting]{
-  justification   = centering,
-  labelsep        = endash,
-  singlelinecheck = false,
-  aboveskip       = 6pt,
-  skip            = 6pt
-}
-\lstset{
-  basicstyle=\ttfamily\small,
-  breaklines=true,
-  frame=single,
-  columns=fullflexible,
-  keepspaces=true,
-  captionpos=b,
-  showstringspaces=false
-}
-
-\addto\captionsrussian{%
-  \renewcommand{\contentsname}{СОДЕРЖАНИЕ}%
-  \renewcommand{\figurename}{Рисунок}%
-}
-
-% Заголовок "СОДЕРЖАНИЕ": по центру, жирный
-\renewcommand{\cfttoctitlefont}{\hfill\bfseries\fontsize{14}{16.8}\selectfont}
-\renewcommand{\cftaftertoctitle}{\hfill}
-
-% Строки содержания: обычный, НЕ жирный шрифт
-\renewcommand{\cftsecfont}{\normalfont\fontsize{14}{16.8}\selectfont}
-\renewcommand{\cftsecpagefont}{\normalfont\fontsize{14}{16.8}\selectfont}
-
-\renewcommand{\cftsubsecfont}{\normalfont\fontsize{14}{16.8}\selectfont}
-\renewcommand{\cftsubsecpagefont}{\normalfont\fontsize{14}{16.8}\selectfont}
-
-\renewcommand{\cftsubsubsecfont}{\normalfont\fontsize{14}{16.8}\selectfont}
-\renewcommand{\cftsubsubsecpagefont}{\normalfont\fontsize{14}{16.8}\selectfont}
-
-
 \begin{document}
 
-% 1. Титульный лист (стр. 1, без номера)
+% Титульный лист
 \include{title}
 
+% Задание
+\includepdf[pages=-]{task.pdf}
 
- \includepdf[pages=-]{task.pdf}
-
-% 3. Содержание
+% Содержание
 \tableofcontents
-\newpage
 
-% 4. Введение
+% Введение
 \include{intro}
 
-% 5. Основная часть
+% Основная часть
 \include{ch1}
-\include{ch2}   
+\include{ch2}
 \include{ch3}
 
-% 6. Заключение 
- \include{conclusion}
+% Заключение
+\include{conclusion}
 
-% 7. Список использованных источников 
+% Список литературы
 \newpage
-\begin{center}
-\textbf{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
-\end{center}
-\addcontentsline{toc}{section}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
-
+\phantomsection
+\section*{СПИСОК ЛИТЕРАТУРЫ}
+\addcontentsline{toc}{section}{СПИСОК ЛИТЕРАТУРЫ}
 \printbibliography[heading=none]
-% 8. Приложения (при необходимости)
+
+% Приложения (при необходимости)
 % \include{appendix}
 
 \end{document}

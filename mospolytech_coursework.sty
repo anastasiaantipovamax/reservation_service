@@ -1,0 +1,247 @@
+
+\ProvidesPackage{mospolytech_coursework}
+
+% --- Базовые пакеты для русского языка и шрифта ---
+\RequirePackage[T2A]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english,russian]{babel}
+\RequirePackage{tempora} % Аналог Times New Roman
+\RequirePackage{pdfpages}
+\RequirePackage{microtype}
+
+% --- Настройка полей ---
+\RequirePackage[left=30mm, right=15mm, top=20mm, bottom=20mm, footskip=12mm]{geometry}
+
+% --- Интервалы и абзацы ---
+\RequirePackage{setspace}
+\onehalfspacing
+\RequirePackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+\RequirePackage[hang]{footmisc}
+\RequirePackage{perpage}
+\MakePerPage{footnote}
+
+% --- Гиперссылки и оглавление ---
+\RequirePackage[hidelinks, unicode, psdextra]{hyperref}
+\urlstyle{same}
+
+% --- Заголовки ---
+\RequirePackage{titlesec}
+\RequirePackage{etoolbox}
+\newcommand{\nohyphens}{\hyphenpenalty=10000\exhyphenpenalty=10000\sloppy}
+
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+
+% Заголовки структурных элементов и глав как в шаблоне: новая страница, центр, жирный, прописные
+\titleformat{name=\section}
+{\newpage\nohyphens\normalfont\bfseries\filcenter}
+{}
+{0pt}
+{\MakeUppercase}
+
+\makeatletter
+\let\oldaddcontentsline\addcontentsline
+\renewcommand{\addcontentsline}[3]{%
+    \ifstrequal{#2}{section}
+    {\oldaddcontentsline{#1}{#2}{\texorpdfstring{\MakeUppercase{#3}}{#3}}}
+    {\oldaddcontentsline{#1}{#2}{#3}}%
+}
+\makeatother
+
+\titleformat{\subsection}
+{\nohyphens\normalfont\bfseries}
+{\hspace{1.25cm}\thesubsection}
+{1em}
+{}
+
+\titleformat{\subsubsection}
+{\nohyphens\normalfont\bfseries}
+{\hspace{1.25cm}\thesubsubsection}
+{1em}
+{}
+
+\setcounter{tocdepth}{2}
+
+% --- Сноски ---
+\renewcommand*{\thefootnote}{(\arabic{footnote})}
+\renewcommand{\footnotelayout}{\fontsize{12pt}{14pt}\selectfont}
+\makeatletter
+\renewcommand{\@makefntext}[1]{%
+    \noindent\hspace{1.25cm}%
+    \@thefnmark~#1%
+}
+\makeatother
+
+% --- Графика, рисунки и таблицы ---
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{chngcntr}
+\RequirePackage{array, booktabs, multirow, tabularx}
+\RequirePackage{longtable}
+\RequirePackage{threeparttable}
+\RequirePackage{pdflscape}
+\RequirePackage{ragged2e}
+
+\graphicspath{{./}{images/}}
+
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+\captionsetup[figure]{
+    labelsep=endash,
+    justification=centering,
+    singlelinecheck=false,
+    position=bottom,
+    skip=6pt,
+    font={normalfont},
+    name={Рисунок}
+}
+
+\captionsetup[table]{
+    labelsep=endash,
+    justification=raggedright,
+    singlelinecheck=false,
+    position=top,
+    skip=6pt,
+    font={normalfont},
+    name={Таблица}
+}
+
+\captionsetup[longtable]{
+    labelsep=endash,
+    justification=raggedright,
+    singlelinecheck=false,
+    position=top,
+    font={normalfont},
+    skip=6pt,
+    name={Таблица}
+}
+
+\setlength{\intextsep}{12pt}
+\setlength{\textfloatsep}{12pt}
+\AtBeginEnvironment{figure}{\addtolength{\belowcaptionskip}{-6pt}}
+\AtBeginEnvironment{table}{\addtolength{\belowcaptionskip}{-6pt}}
+\setlength{\LTpre}{12pt}
+\setlength{\LTpost}{6pt}
+\AtBeginEnvironment{longtable}{\onehalfspacing\renewcommand{\arraystretch}{1.2}}
+\AtBeginEnvironment{table}{\onehalfspacing\renewcommand{\arraystretch}{1.2}}
+
+\makeatletter
+\newcommand{\tabcont}[1]{%
+    \multicolumn{\LT@cols}{l}{\normalsize Продолжение таблицы #1} \\[6pt] \hline
+}
+\makeatother
+
+% Пользовательские типы колонок проекта
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+
+% --- Формулы ---
+\RequirePackage{amsmath, amsfonts, amssymb}
+\RequirePackage{mathtools}
+\RequirePackage{icomma}
+\setlength{\abovedisplayskip}{18pt}
+\setlength{\belowdisplayskip}{18pt}
+\setlength{\abovedisplayshortskip}{12pt}
+\setlength{\belowdisplayshortskip}{12pt}
+
+% --- Списки ---
+\RequirePackage{enumitem}
+\setlist[enumerate]{topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=2pt}
+\setlist[itemize]{topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=2pt}
+
+\newenvironment{where}
+{\par\vspace{6pt}\noindent\hspace{1.25cm}где \begin{itemize}[
+            nosep,
+            leftmargin=1.25cm,
+            label={},
+            itemindent=0pt,
+            listparindent=0pt
+        ]}
+        {\end{itemize}\vspace{6pt}}
+
+% --- Листинги ---
+\RequirePackage{listings}
+\RequirePackage{xcolor}
+\renewcommand{\lstlistingname}{Листинг}
+\newcommand{\listingfont}{\fontsize{12pt}{14pt}\selectfont\ttfamily}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.97,0.97,0.97}
+
+\lstset{
+    numbers=left,
+    numberstyle=\footnotesize\color{gray},
+    stepnumber=1,
+    numbersep=8pt,
+    firstnumber=1,
+    numberfirstline=true,
+    xleftmargin=2em,
+    framexleftmargin=1.5em,
+    basicstyle=\fontsize{12pt}{13pt}\selectfont\ttfamily,
+    lineskip=0pt,
+    aboveskip=12pt,
+    belowskip=6pt,
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{codepurple},
+    frame=single,
+    rulecolor=\color{black},
+    captionpos=t,
+    extendedchars=\true,
+    breaklines=true,
+    keepspaces=true,
+    showstringspaces=false,
+    tabsize=4,
+    columns=fullflexible
+}
+
+\captionsetup[lstlisting]{
+    format=plain,
+    labelsep=endash,
+    justification=raggedright,
+    singlelinecheck=false,
+    font={normalfont},
+    position=top,
+    skip=6pt
+}
+
+% --- Библиография ГОСТ через biblatex-gost ---
+\RequirePackage{csquotes}
+\RequirePackage[
+  backend=biber,
+  style=gost-numeric,
+  sorting=none,
+  language=auto,
+  autolang=other
+]{biblatex}
+\addbibresource{refs.bib}
+
+% --- Нумерация страниц ---
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\tolerance=1000
+\emergencystretch=2em
+
+\addto\captionsrussian{%
+  \renewcommand{\contentsname}{СОДЕРЖАНИЕ}%
+  \renewcommand{\figurename}{Рисунок}%
+}
+
+% --- Приложения ---
+\newcommand{\startappendix}{%
+    \newpage
+    \appendix
+    \renewcommand{\thesection}{\Alph{section}}
+}
